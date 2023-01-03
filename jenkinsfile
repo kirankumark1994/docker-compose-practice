@@ -1,10 +1,7 @@
 pipeline {
     agent any
     
-    environment {
-        PATH = '$PATH:/usr/bin'
-    }
-
+    
     stages {
         stage('checkout') {
             steps {
@@ -17,11 +14,7 @@ pipeline {
                 sh 'docker-compose up -d'
             }
         }
-        stage('ps') {
-            steps {
-                sh 'docker ps'
-            }
-        }
+       
     }
     post {
   success {
