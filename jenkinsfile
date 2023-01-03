@@ -10,21 +10,21 @@ pipeline {
        
         stage('up') {
             steps {
-                sh docker-compose -f docker-compose.yaml up -d
+                sh 'docker-compose -f docker-compose.yaml up -d'
             }
         }
         stage('ps') {
             steps {
-                sh docker -f docker-compose.yaml ps
+                sh 'docker -f docker-compose.yaml ps'
             }
         }
     }
     post {
   success {
-    echo "success"
+    echo 'success'
   }
   failure {
-    echo "failure"
+    echo 'failure'
   }
 }
 
