@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('checkout') {
+            steps {
+               git 'https://github.com/kirankumark1994/docker-compose-practice.git'
+            }
+        }
+        stage('copy') {
+            steps {
+                sh copy . ./
+            }
+        }
+        stage('up') {
+            steps {
+                sh docker-compose up -d
+            }
+        }
+        stage('ps') {
+            steps {
+                sh docker ps
+            }
+        }
+    }
+    post {
+  success {
+    echo "success"
+  }
+  failure {
+    echo "failure"
+  }
+}
+
+}
