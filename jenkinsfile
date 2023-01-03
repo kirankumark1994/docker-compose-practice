@@ -7,11 +7,7 @@ pipeline {
                git 'https://github.com/kirankumark1994/docker-compose-practice.git'
             }
         }
-        stage('copy') {
-            steps {
-                sh copy . ./
-            }
-        }
+       
         stage('up') {
             steps {
                 sh docker-compose up -d
