@@ -3,12 +3,6 @@ pipeline {
     
     
     stages {
-        stage('checkout') {
-            steps {
-               git 'https://github.com/kirankumark1994/docker-compose-practice.git'
-            }
-        }
-       
         stage('up') {
             steps {
                 sh 'docker-compose up -d'
