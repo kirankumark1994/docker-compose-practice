@@ -21,7 +21,7 @@ pipeline{
                     //withCredentials([sshUserPrivateKey(credentialsId: 'docker-machine-ssh-key', keyFileVariable: 'docker-ubuntu', usernameVariable: 'ubuntu')]) {
                       sh(script:"ssh  ubuntu@44.204.237.66 \"mkdir -p /home/ubuntu/compose-deployment/ \" ")
                       sh(script:"scp -r ${WORKSPACE}/* ubuntu@44.204.237.66:/home/ubuntu/compose-deployment/ ")
-                      sh(script:"ssh  ubuntu@44.204.237.66 \"cd /home/ubuntu/compose-deployment/ && docker-compose up -d \" ")
+                      sh(script:"ssh  ubuntu@44.204.237.66 \"cd /home/ubuntu/compose-deployment/ && sudo docker-compose up -d \" ")
                 //}
                 
             }
