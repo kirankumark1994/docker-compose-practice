@@ -1,9 +1,18 @@
 pipeline{
     agent any 
+    
+    parameters {
+      string defaultValue: 'master', description: 'Provide branch name ', name: 'BRANCH', trim: true
+    }
+
     stages{
         stage("Checkout"){
             steps{
                 echo "======== Executing Checkout========"
+                script {
+                    sh(script:"git checkout ${BRANCH} ")
+                }
+
             }
         }
         stage("Deploy"){
