@@ -18,12 +18,9 @@ pipeline{
         stage("Deploy"){
             steps{
                 echo "======== Executing Deploy========"
-                script {
                     withCredentials([sshUserPrivateKey(credentialsId: 'docker-machine-ssh-key', keyFileVariable: 'docker-ubuntu', usernameVariable: 'ubuntu')]) {
                       sh(script:"ssh -i ${docker-ubuntu} ubuntu@44.204.237.66  \" date \" ")
-                     }
                 }
-                
             }
         } 
         stage("Status"){
